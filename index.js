@@ -6,7 +6,7 @@ import dotenv from "dotenv";
 import userRoutes from "./src/routes/users.route.js";
 
 dotenv.config(); 
-let PORT = 5000
+// let PORT = 5000
 app.use(cors());
 app.use(express.json());
 app.get('/', (req, res) => {
@@ -18,8 +18,8 @@ app.use("/api/v1", userRoutes);
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
-      console.log(`⚙️  Server is running at port : ${PORT}`);
+    app.listen(process.env.PORT, () => {
+      console.log(`⚙️  Server is running at port : ${process.env.PORT}`);
     });
   })
   .catch((err) => {
